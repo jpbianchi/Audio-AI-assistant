@@ -17,6 +17,7 @@ def nav_item(item: dict) -> rx.Component:
         class_name="group flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:bg-[#252a41]",
     )
 
+
 def recording_indicator() -> rx.Component:
     return rx.el.div(
         rx.el.div(class_name="h-2.5 w-2.5 rounded-full bg-current"),
@@ -65,6 +66,7 @@ def pdf_dropzone() -> rx.Component:
         class_name="flex flex-col items-center justify-center",
     )
 
+
 def sidebar() -> rx.Component:
     """The sidebar component for the app."""
     return rx.el.aside(
@@ -82,12 +84,11 @@ def sidebar() -> rx.Component:
                 rx.foreach(State.nav_items, nav_item), class_name="flex-1 space-y-1 p-4"
             ),
             rx.el.div(
-                    rx.el.div(
-                        pdf_dropzone(),
-                        class_name="flex items-center justify-center gap-8",
-                    ),
-                    class_name="p-6 border-t border-gray-800",
+                rx.el.div(
+                    pdf_dropzone(), class_name="flex items-center justify-center gap-8"
                 ),
+                class_name="p-6 border-t border-gray-800",
+            ),
             rx.el.div(
                 rx.el.div(
                     microphone_button(),
