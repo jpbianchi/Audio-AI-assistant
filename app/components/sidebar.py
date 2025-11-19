@@ -24,7 +24,7 @@ def sidebar() -> rx.Component:
         rx.el.div(
             rx.el.div(
                 rx.el.a(
-                    rx.image(src="/circular_logo_white.png", class_name="h-8 w-8"),
+                    rx.image(src="/q.png", class_name="h-8 w-8", size="large"),
                     rx.el.span("Welcome", class_name="sr-only"),
                     href="#",
                     class_name="flex items-center gap-2",
