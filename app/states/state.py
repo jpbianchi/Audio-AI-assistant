@@ -1,7 +1,5 @@
 import reflex as rx
 from typing import TypedDict
-import reflex as rx
-from typing import TypedDict
 import httpx
 import os
 import logging
@@ -62,7 +60,10 @@ class State(rx.State):
     @rx.event
     def add_assistant_response(self, response: str):
         """Add the assistant's response to the chat history."""
-        self.chat_history.append({"role": "assistant", "content": response})
+        if self.chat_history and self.chat_history[-1]["role"] == "user":
+            self.chat_history.append({"role": "assistant", "content": ""})
+        if self.chat_history and self.chat_history[-1]["role"] == "assistant":
+            self.chat_history[-1]["content"] += response
         self.is_processing = False
 
     @rx.event
